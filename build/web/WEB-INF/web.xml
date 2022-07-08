@@ -23,6 +23,10 @@
         <servlet-name>HomeController</servlet-name>
         <servlet-class>Controller.HomeController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddProject</servlet-name>
+        <servlet-class>Controller.AddProject</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignUpController</servlet-name>
         <url-pattern>/SignUp</url-pattern>
@@ -42,6 +46,10 @@
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/Home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddProject</servlet-name>
+        <url-pattern>/add</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

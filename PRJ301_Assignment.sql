@@ -1,14 +1,14 @@
 ﻿create database EmployeeManagement
 use EmployeeManagement
 
-create table department(
+CREATE TABLE [dbo].[tblDepartment](
 	deptsID char(4) primary key,
 	departmentName nvarchar(30),
 	address nvarchar(30),
 
 );
 
-create table project(
+CREATE TABLE [dbo].[tblProject](
 	proID char(4) primary key,
 	projectName nvarchar(30),
 	start Date,
@@ -17,13 +17,13 @@ create table project(
 	check(start < deadline)
 );
 
-create table typeEmployee(
+CREATE TABLE [dbo].[tblTypeEmployee](
 	typeEmployee nvarchar(15) primary key,
 	insurrance decimal(15,3),
 	check(insurrance >0),
 );
 
-create table employee(
+CREATE TABLE [dbo].[tblEmployee](
 	ID char(6) primary key,
 	name nvarchar(30),
 	birth date,
@@ -39,13 +39,13 @@ create table employee(
 	salary >0 and 
 	(sex = 'male' or sex = 'female')
 	),
-	foreign key (deptsID) references department(deptsID)
+	foreign key (deptsID) references tblDepartment(deptsID)
 	on delete set null
 	on update cascade,
-	foreign key (proID) references project(proID)
+	foreign key (proID) references tblProject(proID)
 	on delete set null
 	on update cascade,
-	foreign key (typeEmployee) references typeEmployee(typeEmployee)
+	foreign key (typeEmployee) references tblTypeEmployee(typeEmployee)
 	on delete set null 
 	on update cascade
 );
